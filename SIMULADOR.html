@@ -1,0 +1,734 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador de Preguntas 4to</title>
+  <link rel="shortcut icon" type="image/x-icon" href="resa.ico"/>
+  <style>
+    body {
+      font-family: 'Trebuchet MS', sans-serif;
+      background: #090909db;
+      color: #ffffff;
+      padding: 20px;
+    }
+
+    .pri {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .pri h1 {
+      color: #e6b800;
+      font-size: 2.5em;
+    }
+
+    .nombre {
+      background-color: #1c1c1c;
+      padding: 15px;
+      border-radius: 10px;
+      width: 360px;
+      margin: auto;
+      box-shadow: 0 0 10px #00ffd5;
+      text-align: center;
+    }
+
+    .nombre input {
+      padding: 12px;
+      width: 90%;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      outline: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background-color: #121212;
+      color: #00ffd5;
+      border: 2px solid #00ffd5;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #00ffd5;
+      color: #121212;
+    }
+
+    .question-container {
+      background-color: #1e1e1e;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-left: 5px solid #00ffd5;
+      border-radius: 8px;
+    }
+
+    .sec {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 1.2em;
+      color: #f4f4f4;
+    }
+
+    #temporizador {
+      font-size: 1.3em;
+      color: #ff5050;
+      background-color: #1a1a1a;
+      padding: 10px;
+      width: fit-content;
+      margin: auto;
+      border-radius: 10px;
+      font-weight: bold;
+      box-shadow: 0 0 10px #ff5050;
+    }
+  </style>
+</head>
+<body>
+  <div class="pri">
+    <h1>Simulador de Preguntas de Lengua y Literatura</h1>
+  </div>
+
+  <div class="nombre">
+    <input type="text" id="nombre" placeholder="Ingrese su nombre" required>
+    <br><br>
+    <button onclick="guardarNombre()">Guardar nombre</button>
+  </div>
+  <p id="temporizador"></p>
+  <br>
+  <div class="sec">
+    <p><strong>Tema: "El texto y su intención comunicativa" 👌</strong></p>
+  </div>
+<br>
+ 
+  <form id="quizForm">
+    <div class="question-container">
+      <div class="question-container">
+        <p><strong>1. ¿Qué es un texto?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a">Un dibujo bonito </label>
+          <label><input type="radio" name="q1" value="b">Un conjunto de palabras que comunican algo</label>
+          <label><input type="radio" name="q1" value="c">Una lista de compras</label>
+        </div>
+      </div>
+  
+      <div class="question-container">
+        <p><strong>2. ¿Para qué sirve un texto con intención informativa?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> Para hacer reir</label>
+          <label><input type="radio" name="q2" value="b"> Para dar datos o enseñar algo</label>
+          <label><input type="radio" name="q2" value="c"> Para ordenar</label>
+        </div>
+      </div>
+      <div class="question-container">
+        <p><strong>3. ¿Qué intención tiene un cuento?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> Informar</label>
+          <label><input type="radio" name="q3" value="b"> Convencer</label>
+          <label><input type="radio" name="q3" value="c"> Entretener</label>
+        </div>
+      </div>
+      
+      <div class="question-container">
+        <p><strong>4. ¿Qué tipo de texto busca enseñar o explicar cómo hacer algo?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> Narrativo</label>
+          <label><input type="radio" name="q4" value="b"> Instructivo</label>
+          <label><input type="radio" name="q4" value="c"> Persuasivo</label>
+        </div>
+      </div>
+      
+      <div class="question-container">
+        <p><strong>5. ¿Qué texto tiene la intención de convencer al lector de algo?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> Instructivo</label>
+          <label><input type="radio" name="q5" value="b"> Informativo</label>
+          <label><input type="radio" name="q5" value="c"> Persuasivo</label>
+        </div>
+      </div>
+      
+      <div class="question-container">
+        <p><strong>6. ¿Cuál de estos textos tiene una intención informativa?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q6" value="a"> Una receta de cocina</label>
+          <label><input type="radio" name="q6" value="b"> Una noticia del periódico</label>
+          <label><input type="radio" name="q6" value="c"> Un poema</label>
+        </div>
+      </div>
+      
+      <div class="question-container">
+        <p><strong>7. ¿Qué palabra te puede ayudar a saber que un texto es instructivo?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q7" value="a"> “Debes hacer…”</label>
+          <label><input type="radio" name="q7" value="b"> “Había una vez…”</label>
+          <label><input type="radio" name="q7" value="c"> “Fue muy divertido…”</label>
+        </div>
+      </div>
+      
+      <div class="question-container">
+        <p><strong>8. ¿Por qué es importante saber la intención de un texto?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q8" value="a"> Para poder escribir bonito</label>
+          <label><input type="radio" name="q8" value="b"> Para entender mejor lo que quiere comunicar</label>
+          <label><input type="radio" name="q8" value="c"> Para contarle a un amigo</label>
+        </div>
+      </div>
+      
+      <div class="question-container">
+        <p><strong>9. ¿Qué tipo de texto tiene la intención de entretener?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q9" value="a"> Un cuento</label>
+          <label><input type="radio" name="q9" value="b"> Un instructivo</label>
+          <label><input type="radio" name="q9" value="c"> Un cartel de aviso</label>
+        </div>
+      </div>
+      
+      <div class="question-container">
+        <p><strong>10. Si el texto dice: “Compra este producto, es el mejor para tu familia”, ¿qué intención tiene?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q10" value="a"> Entretener</label>
+          <label><input type="radio" name="q10" value="b"> Informar</label>
+          <label><input type="radio" name="q10" value="c"> Convencer</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+  <div class="cam">
+    <p><strong><center>Preguntas sobre el tema :"Los Pronombre personales"😁</center></strong></p>
+    </div>
+    <br>
+  <form id="quizForm"></form>
+    <div class="question-container">
+      
+        <div class="question-container">
+            <p><strong>11. ¿Qué es un pronombre personal?</strong></p>
+            <div class="options">
+              <label><input type="radio" name="q11" value="a"> Una palabra que señala objetos</label>
+              <label><input type="radio" name="q11" value="b"> Una palabra que sustituye al sustantivo</label>
+              <label><input type="radio" name="q11" value="c"> Una palabra que describe acciones</label>
+            </div>
+          </div>
+          
+          <div class="question-container">
+            <p><strong>12. ¿Cuál de los siguientes es un pronombre personal?</strong></p>
+            <div class="options">
+              <label><input type="radio" name="q12" value="a"> Perro</label>
+              <label><input type="radio" name="q12" value="b"> Él</label>
+              <label><input type="radio" name="q12" value="c"> Correr</label>
+            </div>
+          </div>
+          
+          <div class="question-container">
+            <p><strong>13. ¿Qué pronombre se usa para hablar de ti mismo?</strong></p>
+            <div class="options">
+              <label><input type="radio" name="q13" value="a"> Tú</label>
+              <label><input type="radio" name="q13" value="b"> Yo</label>
+              <label><input type="radio" name="q13" value="c"> Ellos</label>
+            </div>
+          </div>
+          
+          <div class="question-container">
+            <p><strong>14. ¿Cuál es el pronombre que se usa para hablar con otra persona?</strong></p>
+            <div class="options">
+              <label><input type="radio" name="q14" value="a"> Yo</label>
+              <label><input type="radio" name="q14" value="b"> Tú</label>
+              <label><input type="radio" name="q14" value="c"> Él</label>
+            </div>
+          </div>
+          
+          <div class="question-container">
+            <p><strong>15. ¿Cuál de estos pronombres es plural?</strong></p>
+            <div class="options">
+              <label><input type="radio" name="q15" value="a"> Ella</label>
+              <label><input type="radio" name="q15" value="b"> Nosotros</label>
+              <label><input type="radio" name="q15" value="c"> Yo</label>
+            </div>
+          </div>
+          
+          <div class="question-container">
+            <p><strong>16. ¿Qué pronombre usarías para hablar de un grupo de mujeres?</strong></p>
+            <div class="options">
+              <label><input type="radio" name="q16" value="a"> Ellas</label>
+              <label><input type="radio" name="q16" value="b"> Ellos</label>
+              <label><input type="radio" name="q16" value="c"> Nosotros</label>
+            </div>
+          </div>
+          
+          <div class="question-container">
+            <p><strong>17. ¿Qué pronombre usarías para hablar de varias personas incluyéndote a ti?</strong></p>
+            <div class="options">
+              <label><input type="radio" name="q17" value="a"> Ustedes</label>
+              <label><input type="radio" name="q17" value="b"> Nosotros</label>
+              <label><input type="radio" name="q17" value="c"> Ellos</label>
+            </div>
+          </div>
+          
+          <div class="question-container">
+            <p><strong>18. ¿Qué pronombre corresponde a tercera persona del singular?</strong></p>
+            <div class="options">
+              <label><input type="radio" name="q18" value="a"> Tú</label>
+              <label><input type="radio" name="q18" value="b"> Él</label>
+              <label><input type="radio" name="q18" value="c"> Nosotros</label>
+            </div>
+          </div>
+          <div class="question-container">
+            <p><strong>19. ¿Que pronombres usarias ara hablar con varias personas?</strong></p>
+            <div class="options">
+              <label><input type="radio" name="q19" value="a"> Ustedes</label>
+              <label><input type="radio" name="q19" value="b"> Yo</label>
+              <label><input type="radio" name="q19" value="c"> El</label>
+            </div>
+          </div>
+          <div class="question-container">
+            <p><strong>20. ¿Cual pronombre usarias para hablar de una niña?</strong></p>
+            <div class="options">
+              <label><input type="radio" name="q20" value="a"> El</label>
+              <label><input type="radio" name="q20" value="b"> Ella</label>
+              <label><input type="radio" name="q20" value="c"> Nosotros</label>
+            </div>
+          </div>
+    </div>
+  </form>
+  
+  <div class="lam">
+    <p><strong><center>Preguntas sobre el tema: "La poesía y sus características" 📜</strong></center></p>
+  </div>
+  <br>
+  <form id="quizForm"></form>
+  <form id="quizForm"></form>
+    <div class="question-container">
+      <p><strong>21. ¿Qué es una poesía?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q21" value="a">Una noticia importante</label>
+        <label><input type="radio" name="q21" value="b">Un texto que rima y expresa sentimientos</label>
+        <label><input type="radio" name="q21" value="c">Una receta de cocina</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>22. ¿Qué es una rima?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q22" value="a">Cuando los versos se parecen al final</label>
+        <label><input type="radio" name="q22" value="b">Cuando hay muchas letras</label>
+        <label><input type="radio" name="q22" value="c">Cuando escribimos en prosa</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>23. ¿Qué sentimientos se pueden expresar en una poesía?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q23" value="a">Alegría, tristeza o amor</label>
+        <label><input type="radio" name="q23" value="b">Solo miedo</label>
+        <label><input type="radio" name="q23" value="c">Ninguno</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>24. ¿Cómo se llama cada línea de una poesía?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q24" value="a">Párrafo</label>
+        <label><input type="radio" name="q24" value="b">Verso</label>
+        <label><input type="radio" name="q24" value="c">Título</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>25. ¿Qué es una estrofa?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q25" value="a">Una parte del poema formada por varios versos</label>
+        <label><input type="radio" name="q25" value="b">Una palabra difícil</label>
+        <label><input type="radio" name="q25" value="c">Un dibujo del poema</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>26. ¿Cuál de estos es un poema?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q26" value="a">“El sol brilla y me hace sonreír”</label>
+        <label><input type="radio" name="q26" value="b">“Instrucciones para armar una silla”</label>
+        <label><input type="radio" name="q26" value="c">“Mi tarea de matemáticas”</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>27. ¿Qué figura usa la poesía para comparar cosas?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q27" value="a">Metáfora</label>
+        <label><input type="radio" name="q27" value="b">Mapa</label>
+        <label><input type="radio" name="q27" value="c">Cuadro</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>28. ¿Quién escribe poemas?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q28" value="a">Poeta</label>
+        <label><input type="radio" name="q28" value="b">Cocinero</label>
+        <label><input type="radio" name="q28" value="c">Mecánico</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>29. ¿Cómo puede ser el lenguaje en la poesía?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q29" value="a">Creativo y bonito</label>
+        <label><input type="radio" name="q29" value="b">Difícil y aburrido</label>
+        <label><input type="radio" name="q29" value="c">Igual al de los cuentos</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>30. ¿Qué hace especial a una poesía?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q30" value="a">Que rime y tenga sentimientos</label>
+        <label><input type="radio" name="q30" value="b">Que tenga dibujos</label>
+        <label><input type="radio" name="q30" value="c">Que tenga solo palabras largas</label>
+      </div>
+    </div>
+  </form>
+  
+  <div class="rap">
+    <p><strong><center>Preguntas sobre el tema: "El hiato" 😃</center></strong></p>
+  </div>
+  <form id="quizForm"></form>
+  <br>
+    <div class="question-container">
+      <p><strong>31. ¿Qué es un hiato?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q31" value="a">Cuando dos vocales se separan en sílabas distintas</label>
+        <label><input type="radio" name="q31" value="b">Cuando dos consonantes se juntan</label>
+        <label><input type="radio" name="q31" value="c">Una letra que suena fuerte</label>
+      </div>
+    </div>
+
+    <div class="question-container">
+      <p><strong>32. ¿Cuál de estas palabras tiene un hiato?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q32" value="a">cielo</label>
+        <label><input type="radio" name="q32" value="b">poeta</label>
+        <label><input type="radio" name="q32" value="c">cuento</label>
+      </div>
+    </div>
+
+    <div class="question-container">
+      <p><strong>33. ¿Qué ocurre en la palabra "país"?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q33" value="a">Tiene diptongo</label>
+        <label><input type="radio" name="q33" value="b">Tiene hiato</label>
+        <label><input type="radio" name="q33" value="c">No tiene ninguna de las dos</label>
+      </div>
+    </div>
+
+    <div class="question-container">
+      <p><strong>34. ¿Qué vocales forman un hiato?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q34" value="a">Una vocal fuerte y una débil sin tilde</label>
+        <label><input type="radio" name="q34" value="b">Dos vocales fuertes o una débil con tilde y una fuerte</label>
+        <label><input type="radio" name="q34" value="c">Dos vocales débiles</label>
+      </div>
+    </div>
+
+    <div class="question-container">
+      <p><strong>35. ¿Qué palabra tiene hiato?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q35" value="a">caer</label>
+        <label><input type="radio" name="q35" value="b">tierra</label>
+        <label><input type="radio" name="q35" value="c">fuego</label>
+      </div>
+    </div>
+    <div class="question-container">
+        <p><strong>36. ¿Qué ocurre cuando hay un hiato en una palabra?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q36" value="a">Las vocales se separan en sílabas</label>
+          <label><input type="radio" name="q36" value="b">Las letras desaparecen</label>
+          <label><input type="radio" name="q36" value="c">Las palabras se escriben mal</label>
+        </div>
+      </div>
+      
+      <div class="question-container">
+        <p><strong>37. ¿En cuál de estas palabras hay un hiato?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q37" value="a">tía</label>
+          <label><input type="radio" name="q37" value="b">cielo</label>
+          <label><input type="radio" name="q37" value="c">piedra</label>
+        </div>
+      </div>
+      
+      <div class="question-container">
+        <p><strong>38. ¿Qué palabra tiene un diptongo y no un hiato?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q38" value="a">día</label>
+          <label><input type="radio" name="q38" value="b">río</label>
+          <label><input type="radio" name="q38" value="c">cielo</label>
+        </div>
+      </div>
+      
+      <div class="question-container">
+        <p><strong>39. ¿Qué vocal lleva tilde en un hiato?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q39" value="a">La vocal débil</label>
+          <label><input type="radio" name="q39" value="b">La vocal fuerte</label>
+          <label><input type="radio" name="q39" value="c">Ninguna</label>
+        </div>
+      </div>
+      
+      <div class="question-container">
+        <p><strong>40. ¿Qué palabra contiene un hiato?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q40" value="a">baúl</label>
+          <label><input type="radio" name="q40" value="b">tierra</label>
+          <label><input type="radio" name="q40" value="c">tarde</label>
+        </div>
+      </div>
+  </form>
+  <div class="tra">
+    <p><strong><center>Preguntas sobre el uso correcto de la letra "C" en los plurales ✍️</center></strong></p>
+  </div>
+  <br>
+  <form id="quizForm">
+    <div class="question-container">
+      <p><strong>41. ¿Cuál es el plural correcto de "pez"?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q41" value="a"> Pezes</label>
+        <label><input type="radio" name="q41" value="b"> Peces</label>
+        <label><input type="radio" name="q41" value="c"> Pescis</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>42. ¿Cuál es el plural de "luz"?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q42" value="a"> Luces</label>
+        <label><input type="radio" name="q42" value="b"> Luzes</label>
+        <label><input type="radio" name="q42" value="c"> Luzces</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>43. ¿Qué palabra está escrita correctamente en plural?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q43" value="a"> Narizes</label>
+        <label><input type="radio" name="q43" value="b"> Narices</label>
+        <label><input type="radio" name="q43" value="c"> Naricces</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>44. ¿Cuál es el plural correcto de "cruz"?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q44" value="a"> Cruzes</label>
+        <label><input type="radio" name="q44" value="b"> Cruces</label>
+        <label><input type="radio" name="q44" value="c"> Crucis</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>45. Elige la opción que contiene un plural correcto:</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q45" value="a"> Vozes</label>
+        <label><input type="radio" name="q45" value="b"> Voces</label>
+        <label><input type="radio" name="q45" value="c"> Vozces</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>46. ¿Qué regla se aplica al hacer plural una palabra que termina en "z"?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q46" value="a"> Se agrega “z”</label>
+        <label><input type="radio" name="q46" value="b"> Se cambia la “z” por “c” y se agrega “es”</label>
+        <label><input type="radio" name="q46" value="c"> Solo se agrega “es”</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>47. ¿Qué opción contiene solo plurales correctos?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q47" value="a"> Peces, luces, voces</label>
+        <label><input type="radio" name="q47" value="b"> Pezes, luces, vozces</label>
+        <label><input type="radio" name="q47" value="c"> Peces, luzes, voces</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>48. ¿Qué palabra cambia la “z” por “c” al hacerla plural?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q48" value="a"> Camión</label>
+        <label><input type="radio" name="q48" value="b"> Lapiz</label>
+        <label><input type="radio" name="q48" value="c"> Nariz</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>49. ¿Cómo se escribe el plural de “actriz”?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q49" value="a"> Actrizes</label>
+        <label><input type="radio" name="q49" value="b"> Actrices</label>
+        <label><input type="radio" name="q49" value="c"> Actricis</label>
+      </div>
+    </div>
+  
+    <div class="question-container">
+      <p><strong>50. ¿Qué opción muestra un error en el uso de la “C”?</strong></p>
+      <div class="options">
+        <label><input type="radio" name="q50" value="a"> Peces</label>
+        <label><input type="radio" name="q50" value="b"> Luces</label>
+        <label><input type="radio" name="q50" value="c"> Lapices</label>
+      </div>
+    </div>
+    </div>
+  </form>
+
+  
+
+  <div class="contenedor">
+    <button type="button" onclick="calcularResultado()">Enviar respuestas</button>
+  </div>
+  <button onclick="reiniciarSimulador()">🔄 Reiniciar simulador</button>
+
+  <p id="mensajeFinal"></p>
+
+  <script>
+    function guardarNombre() {
+      const nombre = document.getElementById('nombre').value.trim();
+      if (nombre !== "") {
+        localStorage.setItem('nombreEstudiante', nombre);
+        alert("Nombre guardado correctamente");
+      } else {
+        alert("Por favor ingrese su nombre.");
+      }
+    }
+
+    function calcularResultado() {
+      const respuestasCorrectas = {
+        q1: "b", 
+        q2: "b",
+        q3: "c",
+        q4: "b",
+        q5: "c",
+        q6: "b",
+        q7: "a",
+        q8: "b",
+        q9: "a",
+        q10: "c",
+        q11: "a",
+        q12: "b",
+        q13: "b",
+        q14: "b",
+        q15: "b",
+        q16: "a",
+        q17: "b",
+        q18: "b",
+        q19: "a",
+        q20: "b",
+        q21: "b",
+        q22: "a",
+        q23: "a",
+        q24: "b",
+        q25: "a",
+        q26: "a",
+        q27: "a",
+        q28: "a",
+        q29: "a",
+        q30: "a",
+        q41: "b",
+        q42: "a",
+        q43: "b",
+        q44: "b",
+        q45: "b",
+        q46: "b",
+        q47: "a",
+        q48: "b",
+        q49: "b",
+        q50: "c",
+        q41: "b",
+        q42: "a",
+        q43: "b",
+        q44: "b",
+        q45: "b",
+        q46: "b",
+        q47: "a",
+        q48: "b",
+        q49: "b",
+        q50: "c"
+
+
+      };
+
+      let puntos = 0;
+      for (let pregunta in respuestasCorrectas) {
+        const opciones = document.getElementsByName(pregunta);
+        for (let i = 0; i < opciones.length; i++) {
+          if (opciones[i].checked && opciones[i].value === respuestasCorrectas[pregunta]) {
+            puntos++;
+          }
+        }
+      }
+
+      localStorage.setItem('resultadoPag1', puntos);
+      localStorage.setItem('respuestasEnviadasPag1', 'true');
+
+      document.querySelectorAll("input[type='radio']").forEach(e => e.disabled = true);
+
+      const boton = document.querySelector("button[onclick='calcularResultado()']");
+      boton.disabled = true;
+      boton.style.backgroundColor = "#444";
+      boton.style.cursor = "not-allowed";
+
+      const nombre = localStorage.getItem('nombreEstudiante') || "Estudiante";
+      const totalPreguntas = 50;
+      const resultadoTotal = (puntos / 10) * totalPreguntas;
+
+      let mensaje = `Hola, ${nombre}, tu promedio es de ${resultadoTotal}/50. `;
+      if (resultadoTotal >= 45) {
+        mensaje += "¡Excelente trabajo! 🌟";
+      } else if (resultadoTotal >= 30) {
+        mensaje += "¡Muy bien, sigue así! 👍";
+      } else if (resultadoTotal >= 20) {
+        mensaje += "Puedes mejorar, ¡ánimo! 💪";
+      } else {
+        mensaje += "No te desanimes, ¡sigue practicando! 📘";
+      }
+
+      document.getElementById("mensajeFinal").innerText = mensaje;
+    }
+
+    let tiempo = 300;
+    window.onload = () => {
+    }
+      const timer = document.getElementById("temporizador");
+      const cuenta = setInterval(() => {
+        const min = Math.floor(tiempo / 60);
+        const seg = tiempo % 60;
+        timer.textContent = `⏳ Tiempo restante: ${min}:${seg < 10 ? '0' : ''}${seg}`;
+        tiempo--;
+        if (tiempo < 0) {
+          clearInterval(cuenta);
+          calcularResultado();
+        }
+      }, 1000);
+
+      if (localStorage.getItem('respuestasEnviadasPag1') === 'true') {
+        if (localStorage.getItem('respuestasEnviadasPag1') === 'true') {
+  document.querySelectorAll("input[type='radio']").forEach(e => e.disabled = true);
+        const boton = document.querySelector("button[onclick='calcularResultado()']");
+        if (boton) {
+          boton.disabled = true;
+          boton.style.backgroundColor = "#444";
+          boton.style.cursor = "not-allowed";
+        }
+      }
+    };
+    function reiniciarSimulador() {
+  localStorage.removeItem('respuestasEnviadasPag1');
+  localStorage.removeItem('resultadoPag1');
+  localStorage.removeItem('nombreEstudiante');
+  location.reload(); 
+}
+
+  </script>
+</body>
